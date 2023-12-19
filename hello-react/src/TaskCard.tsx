@@ -18,7 +18,7 @@ import './TaskCard.css'
 //Level 2
 interface TaskCardProps {
   title: string;
-  dueDate: string;
+  dueDate?: string;
   assigneeName: string;
   completedAtDate?: string;
 }
@@ -27,7 +27,7 @@ function TaskCard({ title, dueDate, completedAtDate, assigneeName }: TaskCardPro
   return (
     <div style={{ border: '4px solid White', padding: '10px', marginBottom: '10px' }}>
       <h3>{title}</h3>
-      {dueDate && <p>{dueDate}</p>}
+      {dueDate && <p>{`Due on: ${dueDate}`}</p>}
       {completedAtDate && <p>{`Completed on: ${completedAtDate}`}</p>}
       {assigneeName && <p>{`Assignee: ${assigneeName}`}</p>}
     </div>
