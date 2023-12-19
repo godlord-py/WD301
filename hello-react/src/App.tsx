@@ -11,14 +11,14 @@ function App() {
           <h2>Pending</h2>
           <Taskcard
             title="Play VALORANT"
-            dueDate="due date: 10th April"
-            assigneeName="assignee name: Myself"
+            dueDate="Due on: 10th April"
+            assigneeName="Myself"
           />
 
           <Taskcard
             title="Play AIM LABS"
-            dueDate="due date: 12th April"
-            assigneeName="assignee name: Myself"
+            dueDate="Due on: 12th April"
+            assigneeName="Myself"
           />
         </div>
 
@@ -26,13 +26,13 @@ function App() {
           <h2>Done</h2>
           <Taskcard
             title="Go to College"
-            dueDate="completed on: 14th April"
-            assigneeName="assignee name: Myself"
+            dueDate="Completed on: 14th April"
+            assigneeName="Myself"
           />
           <Taskcard
             title="Learn React.js"
-            dueDate="completed on: 16th April"
-            assigneeName="assignee name: Teachers"
+            dueDate="Completed on: 16th April"
+            assigneeName="Teachers"
           />
         </div>
       </div>
