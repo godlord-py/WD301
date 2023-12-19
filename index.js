@@ -1,1 +1,1 @@
-const app = require('express')();
+console.log("This is a typescript file!");
