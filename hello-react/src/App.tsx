@@ -8,30 +8,30 @@ function App() {
       <h2>Task Management App</h2>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '20px' }}>
         <div style={{ border: '4px solid white', padding: '10px', marginRight: '80px' }}>
-          <h2>Pending</h2>
+          <h2 className='mx-auto text-red-500'>Pending</h2>
           <Taskcard
             title="Play VALORANT"
-            dueDate="Due on: DATE"
+            dueDate="17 April"
             assigneeName="NAME"
           />
 
           <Taskcard
             title="Play AIM LABS"
-            dueDate="Due on: DATE"
+            dueDate="17 April"
             assigneeName="NAME"
           />
         </div>
 
         <div style={{ border: '4px solid white', padding: '10px' }}>
-          <h2>Done</h2>
+          <h2 className='mx-auto text-red-500'>Done</h2>
           <Taskcard
             title="Go to College"
-            dueDate="Completed on: DATE"
+            completedAtDate="17 April"
             assigneeName="NAME"
           />
           <Taskcard
             title="Learn React.js"
-            dueDate="Completed on: DATE"
+            completedAtDate="17 April"
             assigneeName="NAME"
           />
         </div>
