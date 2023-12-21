@@ -25,13 +25,20 @@ class TaskList extends React.Component<Props, State> {
   //     }));
   //   }
   render() {
-    return this.props.tasks.map((task, idx) => (
-      <li key={idx} className="TaskItem">
-      <Task key={idx} todoTitle={task.todoTitle} 
-                      todoDueDate={task.todoDescription}  
-                      todoDescription={task.todoDueDate} /></li>
-      
-    ));
+    return (
+      <ul>
+        {this.props.tasks.map((task, idx) => (
+          <li key={idx} className="TaskItem">
+            <Task
+              key={idx}
+              todoTitle={task.todoTitle}
+              todoDueDate={task.todoDueDate}
+              todoDescription={task.todoDescription}
+            />
+          </li>
+        ))}
+      </ul>
+    );
   }
 }
 export default TaskList;
