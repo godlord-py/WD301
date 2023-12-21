@@ -19,12 +19,11 @@ class TaskApp extends React.Component<TaskAppProp, TaskAppState> {
       alert("Title and due date are required!");
       return;
     }
-    else {  
+    else {   
       //fill TodoDescription with not provided
       if (!task.todoDescription) {
         task.todoDescription = "Not provided";
       }
-      alert("Task added successfully!");
     }
     this.setState((state) => {
       return {

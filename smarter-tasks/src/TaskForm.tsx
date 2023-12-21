@@ -56,6 +56,7 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
           placeholder="Enter task title"
           value={this.state.todoTitle}
           onChange={this.titleChanged}
+          id="todoTitle"
         />
               <input
           type="text"

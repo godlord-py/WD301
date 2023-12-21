@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { TaskItem } from "./types";
+
 import React from "react";
 import Task from "./Task";
 interface Props {
@@ -26,7 +26,10 @@ class TaskList extends React.Component<Props, State> {
   //   }
   render() {
     return this.props.tasks.map((task, idx) => (
-      <Task key={idx} todoTitle={task.todoTitle} todoDueDate={task.todoDescription} todoDescription={task.todoDueDate} />
+      <li key={idx} className="TaskItem">
+      <Task key={idx} todoTitle={task.todoTitle} 
+                      todoDueDate={task.todoDescription}  
+                      todoDescription={task.todoDueDate} /></li>
       
     ));
   }
