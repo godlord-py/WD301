@@ -1,12 +1,43 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import "./App.css";
-// import TaskList from './TaskList';
-// import TaskForm from './TaskForm';
+import HomePage from './pages/HomePage';
+import TaskListPage from './pages/TaskListPage';
+import Layout from "./Layout";
 import TaskApp from "./TaskApp";
-function App() {
+import TaskDetailsPage from './pages/TaskDetailsPage';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+const router = createBrowserRouter([
+  {
+    element: (
+      <Layout />
+    ),
+    children: [
+      {
+        path: "/",
+        element: (<HomePage />)
+      },
+      {
+        path: "tasks",
+        element: (<TaskListPage />)
+      },
+      {
+        path: "tasks/:taskId",
+        element: (<TaskDetailsPage />)
+      },
+    ]
+  }
+]);
+
+
+const App = () => {
   return (
-    <div className="App">
-      <TaskApp />
-    </div>
+    <RouterProvider router={router}/>
+    // <div className="App">
+    //   <TaskApp />
+    // </div>
   );
 }
 export default App;
