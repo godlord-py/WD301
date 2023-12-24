@@ -47,6 +47,7 @@ const TaskForm = (props: TaskFormProps) => {
       todoTitle: formState.todoTitle,
       todoDescription: formState.todoDescription || "", // Use an empty string if todoDescription is undefined
       todoDueDate: formState.todoDueDate,
+      id: Math.random().toString(),
     }); // Pass the new task to the callback function
     setFormState({ todoTitle: "", todoDescription: "", todoDueDate: "" });
   };

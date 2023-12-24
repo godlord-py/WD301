@@ -6,7 +6,6 @@ import { TaskItem } from "../types";
 interface TaskDetailsPageParams extends Record<string, string> {
   id: string;
 }
-
 interface TaskAppState {
   tasks: TaskItem[];
 }
@@ -17,7 +16,7 @@ const TaskDetailsPage: React.FC = () => {
     tasks: [],
   });
 
-  const task = taskAppState.tasks.find((task) => task.id.toString() === id);
+  const task = taskAppState.tasks.find((task) => task.id === id);
 
   return (
     <div className="bg-white shadow-md rounded-md p-4 m-8">

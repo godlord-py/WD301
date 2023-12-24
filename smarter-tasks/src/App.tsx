@@ -8,7 +8,7 @@ import Signin from "./pages/Signin";
 import { Navigate } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import NotFound from "./pages/NotFound";
+import Notfound from "./pages/Notfound";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
       },
       {       
           path: "*",
-          element: <NotFound />,
+          element: <Notfound />,
         
       },
     ],
