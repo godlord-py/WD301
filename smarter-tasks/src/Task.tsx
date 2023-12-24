@@ -1,4 +1,3 @@
-
 import "/home/godlord/wd301/hello-react/src/TaskCard.css";
 interface TaskProp {
   id: string;
@@ -6,6 +5,20 @@ interface TaskProp {
   todoDueDate: string;
   todoDescription: string;
 }
+const Task = (props: TaskProp) => {
+  return (
+    <div className="TaskItem shadow-md border border-slate-100">
+      <a href={`/tasks/${props.id || ""}`}>
+        <h2 className="text-base font-bold my-1">Title: {props.todoTitle}</h2>
+      </a>
+      <p className="text-sm text-slate-500">Description: {props.todoDueDate}</p>
+      <p className="text-sm text-slate-500">DueDate: {props.todoDescription}</p>
+    </div>
+  );
+};
+
+export default Task;
+
 // class Task extends React.Component<TaskProp> {
 //   render() {
 //     return (
@@ -17,18 +30,3 @@ interface TaskProp {
 //     );
 //   }
 // }
-
-const Task = (props: TaskProp) => {
-  return (
-    <div className="TaskItem shadow-md border border-slate-100">
-      <a href= {`/tasks/${props.id || ""}`}>
-      <h2 className="text-base font-bold my-1">Title: {props.todoTitle}</h2>
-      </a>
-      <p className="text-sm text-slate-500">Description: {props.todoDueDate}</p>
-      <p className="text-sm text-slate-500">DueDate: {props.todoDescription}</p>
-    </div>
-  );
-};
-
-
-export default Task;

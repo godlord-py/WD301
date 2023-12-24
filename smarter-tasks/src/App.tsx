@@ -1,43 +1,54 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import "./App.css";
-import HomePage from './pages/HomePage';
-import TaskListPage from './pages/TaskListPage';
+import HomePage from "./pages/HomePage";
+import TaskListPage from "./pages/TaskListPage";
 import Layout from "./Layout";
-import TaskApp from "./TaskApp";
-import TaskDetailsPage from './pages/TaskDetailsPage';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import TaskDetailsPage from "./pages/TaskDetailsPage";
+import Signin from "./pages/Signin";
+import { Navigate } from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import NotFound from "./pages/NotFound";
 const router = createBrowserRouter([
   {
+    path: "/",
+    element: <Navigate to="/signin" replace />,
+  },
+  {
+    path: "/signin",
+    element: <Signin />,
+  },
+  {
     element: (
-      <Layout />
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
     ),
     children: [
       {
-        path: "/",
-        element: (<HomePage />)
+        path: "home",
+        element: <HomePage />,
       },
       {
         path: "tasks",
-        element: (<TaskListPage />)
+        element: <TaskListPage />,
       },
       {
-        path: "tasks/:taskId",
-        element: (<TaskDetailsPage />)
+        path: "tasks/:id",
+        element: <TaskDetailsPage />,
       },
-    ]
-  }
+      {       
+          path: "*",
+          element: <NotFound />,
+        
+      },
+    ],
+  },
 ]);
-
 
 const App = () => {
   return (
-    <RouterProvider router={router}/>
-    // <div className="App">
-    //   <TaskApp />
-    // </div>
+    <RouterProvider router={router} />
   );
-}
+};
 export default App;

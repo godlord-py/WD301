@@ -1,7 +1,7 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useLocalStorage } from '../hooks/useLocalStorage';
-import { TaskItem } from '../types';
+import React from "react";
+import { useParams } from "react-router-dom";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { TaskItem } from "../types";
 
 interface TaskDetailsPageParams extends Record<string, string> {
   id: string;
@@ -13,14 +13,11 @@ interface TaskAppState {
 
 const TaskDetailsPage: React.FC = () => {
   const { id } = useParams<TaskDetailsPageParams>();
-  const [taskAppState] = useLocalStorage<TaskAppState>(
-    "tasks",
-    {
-      tasks: [],
-    }
-  );
-  
-  const task = taskAppState.tasks.find(task => task.id.toString() === id);
+  const [taskAppState] = useLocalStorage<TaskAppState>("tasks", {
+    tasks: [],
+  });
+
+  const task = taskAppState.tasks.find((task) => task.id.toString() === id);
 
   return (
     <div className="bg-white shadow-md rounded-md p-4 m-8">

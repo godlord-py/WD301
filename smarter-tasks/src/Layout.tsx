@@ -3,9 +3,10 @@ import Header from './components/Header';
 import { Outlet } from 'react-router-dom';
 const Layout = () => {
 
+  const isNotFound = window.location.pathname === '/notfound';
   return (
     <>
-      <Header />
+      {!isNotFound && <Header />}
       <main>
         <Outlet/>
       </main>
