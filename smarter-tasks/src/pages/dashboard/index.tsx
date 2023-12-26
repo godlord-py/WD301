@@ -1,15 +1,16 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Dashboard: React.FC = () => {
   // Retrieve user data from localStorage
   const userData = JSON.parse(localStorage.getItem('userData') || '');
     // Logout function to clear user data from localStorage
+    const navigate = useNavigate();
     const logout = () => {
         localStorage.removeItem('authToken');
         localStorage.removeItem('userData');
         // Navigate to the login page
+        navigate('/signin');
         console.log("Removed")
-        return <Navigate to="/signin" />;
         }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
