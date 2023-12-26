@@ -1,58 +1,47 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import "./App.css";
-import HomePage from "./pages/HomePage";
-import TaskListPage from "./pages/TaskListPage";
-import Layout from "./Layout";
-import TaskDetailsPage from "./pages/TaskDetailsPage";
-import Signin from "./pages/Signin";
-import { Navigate } from "react-router-dom";
-import ProtectedRoute from "./ProtectedRoute";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Notfound from "./pages/Notfound";
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Navigate to="/signin" replace />,
-  },
-  {
-    path: "/signin",
-    element: <Signin />,
-  },
-  {
-    element: (
-      <ProtectedRoute>
-        <Layout />
-      </ProtectedRoute>
-    ),
-    children: [
-      {
-        path: "home",
-        element: <HomePage />,
-      },
-      {
-        path: "tasks",
-        element: <TaskListPage />,
-      },
-      {
-        path: "tasks/:id",
-        element: <TaskDetailsPage />,
-      },
-      {
-        path: "notfound",
-        element: <Notfound />,
-      },
-      {       
-          path: "*",
-          element: <Navigate to="/notfound" replace />,
-        
-      },
-    ],
-  },
-]);
+import Signup from "./pages/signup";
+import Dashboard from "./pages/dashboard";
+import ProtectedRoute from "./ProtectedRoute";
+import Signin from "./pages/signin";
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Signup />,
+    },
+    {
+      path: "/signup",
+      element: <Signup />,
+    },
+    {
+      path: "/signin",
+      element: <Signin/>
+
+    },
+    {
+      path: "/notfound",
+      element: <Notfound />,
+    },
+    {
+      path: "/dashboard",
+      element: (
+        <ProtectedRoute>
+          <Dashboard />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "*",
+      element: <Notfound />,
+    }
+  ]);
 
 const App = () => {
   return (
-    <RouterProvider router={router} />
+    <>
+    <RouterProvider router={router} /></>
   );
 };
 export default App;
