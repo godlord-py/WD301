@@ -1,4 +1,4 @@
-import React from 'react';
+
 import MembersList from './MemberList'; 
 import NewMember from './NewMember';  
 

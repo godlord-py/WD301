@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useProjectsState } from "../../context/projects/context";
 
 interface Project {
