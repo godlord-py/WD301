@@ -54,10 +54,11 @@ export const deleteMember = async (dispatch: any, id: any) => {
     }
     const data = await response.json();
     if (data.errors && data.errors.length > 0) {
-      return { ok: false, error: data.errors[0].message }
+      return { ok: false, error: data.errors[0].message } 
     }
 
     dispatch({ type: 'DELETE_MEMBER_SUCCESS', payload: data });
+    fetchMembers(dispatch);
 
     return { ok: true };
   } catch (error) {

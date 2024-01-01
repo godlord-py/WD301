@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { Transition, Dialog } from '@headlessui/react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { addMember} from '../../context/members/actions';
+import { addMember, fetchMembers} from '../../context/members/actions';
 import { useMembersDispatch } from '../../context/members/context';
 
 type Inputs = {
@@ -28,6 +28,7 @@ const NewMember: React.FC = () => {
     const response = await addMember(dispatchMembers, { name, email, password});
     if (response.ok) {
       setIsOpen(false);
+      fetchMembers(dispatchMembers);
     } else {
       setError(response.error as { message: string });
     }

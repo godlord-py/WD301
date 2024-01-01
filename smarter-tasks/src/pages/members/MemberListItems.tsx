@@ -27,6 +27,7 @@ const deleteMemberById = async (dispatch: any, id: number) => {
 export default function MemberListItems() {
   const state = useMembersState();
   const dispatch = useMembersDispatch();
+  
 
   if (!state) {
     // Handle the case when state is not available yet
