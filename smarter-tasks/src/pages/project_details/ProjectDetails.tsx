@@ -1,5 +1,5 @@
 /* eslint-disable prefer-const */
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useProjectsState } from "../../context/projects/context";
 import { useTasksState, useTasksDispatch } from "../../context/task/context";

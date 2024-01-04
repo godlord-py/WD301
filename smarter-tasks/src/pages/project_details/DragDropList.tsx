@@ -4,6 +4,7 @@ import Column from "./Column";
 import { DragDropContext, OnDragEndResponder } from "react-beautiful-dnd";
 import { useTasksDispatch } from "../../context/task/context";
 import { reorderTasks, updateTask } from "../../context/task/actions";
+import { useParams } from "react-router-dom";
 
 
 const Container = (props: React.PropsWithChildren) => {
@@ -14,6 +15,7 @@ const DragDropList = (props: {
   data: ProjectData;
 }) => {
   const taskDispatch = useTasksDispatch();
+  const { projectID } = useParams();
   const onDragEnd: OnDragEndResponder = (result) => {
     const { destination, source, draggableId } = result;
     if (!destination) {

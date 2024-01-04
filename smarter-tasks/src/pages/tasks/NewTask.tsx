@@ -1,3 +1,5 @@
+/* eslint-disable no-empty-pattern */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prefer-const */
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
@@ -18,7 +20,7 @@ const NewTask = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: {},
   } = useForm<TaskDetailsPayload>();
   const projectState = useProjectsState();
   const taskDispatch = useTasksDispatch();
