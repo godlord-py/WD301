@@ -4,6 +4,7 @@ import router from "./routes";
 import { ThemeContext } from "./context/theme";
 import { ProjectsProvider } from "./context/projects/context";
 import { MembersProvider } from "./context/members/context";
+import { CommentProvider } from "./context/comment/context";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
@@ -17,7 +18,9 @@ const App = () => {
       {theme}
       <ProjectsProvider>
         <MembersProvider>
+          <CommentProvider>
           <RouterProvider router={router} />
+          </CommentProvider>
         </MembersProvider>
       </ProjectsProvider>
     </div>
