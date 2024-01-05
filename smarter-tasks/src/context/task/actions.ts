@@ -17,9 +17,7 @@ export const addTask = async (
 ) => {
   const token = localStorage.getItem("authToken") ?? "";
   try {
-    // The following action will toggle `isLoading` to `true`
     dispatch({ type: TaskListAvailableAction.CREATE_TASK_REQUEST });
-    // Invoke the backend server with POST request and create a task.
     const response = await fetch(
       `${API_ENDPOINT}/projects/${projectID}/tasks/`,
       {

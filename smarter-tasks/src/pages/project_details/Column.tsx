@@ -30,7 +30,7 @@ const TaskList = forwardRef<HTMLDivElement | null, React.PropsWithChildren>(
     useEffect(() => {
       console.log('TaskList state:', taskListState);
     }, [taskListState]);
-
+    
       return (
         <div ref={ref} className="grow min-h-100 dropArea" {...props}>
           {" "}
