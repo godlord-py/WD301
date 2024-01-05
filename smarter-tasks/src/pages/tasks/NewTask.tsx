@@ -2,20 +2,22 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prefer-const */
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useProjectsState } from "../../context/projects/context";
-import { useTasksDispatch } from "../../context/task/context";
+import { useTasksDispatch, useTasksState } from "../../context/task/context";
 import { addTask } from "../../context/task/actions";
 import { TaskDetailsPayload } from "../../context/task/types";
 
 const NewTask = () => {
   let [isOpen, setIsOpen] = useState(true);
-
+  const taskListState = useTasksState();
   let { projectID } = useParams();
   let navigate = useNavigate();
-
+  useEffect(() => {
+    console.log('NewTask component re-rendered', taskListState);
+  }, [taskListState]);
   // Use react-hook-form to create form submission handler and state.
   const {
     register,
@@ -39,7 +41,8 @@ const NewTask = () => {
   const onSubmit: SubmitHandler<TaskDetailsPayload> = async (data) => {
     try {
       // Invoke the actual API and create a task.
-      addTask(taskDispatch, projectID ?? "", data);
+      await addTask(taskDispatch, projectID ?? "", data);
+      console.log("Task added successfully");
       closeModal();
     } catch (error) {
       console.error("Operation failed:", error);

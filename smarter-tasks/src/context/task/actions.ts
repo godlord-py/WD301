@@ -35,9 +35,11 @@ export const addTask = async (
     if (!response.ok) {
       throw new Error("Failed to create task");
     }
+    const responseData = await response.json();
+    console.log("Newly created task:", responseData);
     // Turn `isLoading` to `false`
     dispatch({ type: TaskListAvailableAction.CREATE_TASK_SUCCESS });
-    refreshTasks(dispatch, projectID);
+    await refreshTasks(dispatch, projectID);
   } catch (error) {
     console.error("Operation failed:", error);
     // Update error status in the state.
@@ -108,7 +110,7 @@ export const deleteTask = async (
       throw new Error("Failed to delete task");
     }
     dispatch({ type: TaskListAvailableAction.DELETE_TASKS_SUCCESS });
-    refreshTasks(dispatch, projectID);
+    await refreshTasks(dispatch, projectID);
   } catch (error) {
     console.error("Operation failed:", error);
     dispatch({
@@ -143,7 +145,7 @@ export const updateTask = async (
     }
     // Display success and refresh the tasks
     dispatch({ type: TaskListAvailableAction.UPDATE_TASK_SUCCESS });
-    refreshTasks(dispatch, projectID);
+    await refreshTasks(dispatch, projectID);
   } catch (error) {
     console.error("Operation failed:", error);
     // Display error status

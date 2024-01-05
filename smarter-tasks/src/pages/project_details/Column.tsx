@@ -1,8 +1,14 @@
 
-import React, { forwardRef } from "react";  
+import React, { forwardRef, useEffect } from "react";  
 import Task from "./Task";
 import { ColumnData, TaskDetails } from "../../context/task/types";
 import { Droppable } from "react-beautiful-dnd";
+import { useTasksState } from "../../context/task/context";
+interface Props {
+  column: ColumnData;
+  tasks: TaskDetails[];
+}
+
 const Container = (props: React.PropsWithChildren) => {
   // We will use flex to display lists as columns
   return (
@@ -19,6 +25,12 @@ const Title = (props: React.PropsWithChildren) => {
 
 const TaskList = forwardRef<HTMLDivElement | null, React.PropsWithChildren>(
     (props: React.PropsWithChildren, ref) => {
+      const taskListState = useTasksState();
+
+    useEffect(() => {
+      console.log('TaskList state:', taskListState);
+    }, [taskListState]);
+
       return (
         <div ref={ref} className="grow min-h-100 dropArea" {...props}>
           {" "}
@@ -27,11 +39,6 @@ const TaskList = forwardRef<HTMLDivElement | null, React.PropsWithChildren>(
       );
     }
   );
-
-interface Props {
-  column: ColumnData;
-  tasks: TaskDetails[];
-}
 
 const Column: React.FC<Props> = (props) => {
   // Render each `Task` within a `TaskList` component.

@@ -24,7 +24,8 @@ export const taskReducer: Reducer<TaskListState, TaskActions> = (
         ...state, 
           isLoading: false, 
           isError: true, 
-          errorMessage: action.payload}
+          errorMessage: action.payload
+        };
     // Toggle the `isLoading` to true when request is initiated.
     case TaskListAvailableAction.CREATE_TASK_REQUEST:
       return { ...state, isLoading: true };

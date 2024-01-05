@@ -41,7 +41,7 @@ const DragDropList = (props: {
         ...start,
         taskIDs: newTaskIDs,
       };
-      const newState = {
+      const newState = { 
         ...props.data,
         columns: {
           ...props.data.columns,
