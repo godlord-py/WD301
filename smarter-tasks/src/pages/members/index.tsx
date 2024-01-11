@@ -1,15 +1,18 @@
+import React, { Suspense } from "react";
+import NewMember from './NewMember';
 
-import MembersList from './MemberList'; 
-import NewMember from './NewMember';  
+const MembersList = React.lazy(() => import('./MemberList'));
 
 const Members = () => {
   return (
     <>
-      <div className="flex justify-between">
-        <h2 className="text-2xl font-medium tracking-tight">Members</h2>
+      <div className="flex justify-between" role="banner">
+        <h2 className="text-2xl font-medium tracking-tight" aria-label="Members section header">Members</h2>
         <NewMember />
       </div>
-      <MembersList />  
+      <Suspense fallback={<div role="status" aria-live="polite">Loading...</div>}>
+        <MembersList />
+      </Suspense>
     </>
   );
 };
