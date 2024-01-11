@@ -10,7 +10,7 @@ const Members = () => {
         <h2 className="text-2xl font-medium tracking-tight" aria-label="Members section header">Members</h2>
         <NewMember />
       </div>
-      <Suspense fallback={<div role="status" aria-live="polite">Loading...</div>}>
+      <Suspense fallback={<div role="status" aria-live="polite"  className="suspense-loading">Loading...</div>}>
         <MembersList />
       </Suspense>
     </>
