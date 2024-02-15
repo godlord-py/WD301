@@ -65,6 +65,7 @@ const SigninForm: React.FC = () => {
       >
         Sign In
       </button>
+        Don't have an account? Sign up here: <a href="/signup" className="text-green-500 hover:text-red-600">Sign up</a>
     </form>
   );
 };
